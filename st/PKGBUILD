@@ -1,0 +1,55 @@
+# Maintainer: Gaetan Bisson <bisson@archlinux.org>
+# Contributor: Scytrin dai Kinthra <scytrin@gmail.com>
+# Modified: Markus Seeber
+
+pkgname=st-git
+_pkgname=st
+epoch=1
+pkgver=20150314.c7e24e4
+pkgrel=1
+pkgdesc='Simple virtual terminal emulator for X'
+url='http://git.suckless.org/st/'
+arch=('i686' 'x86_64' 'armv7h')
+license=('MIT')
+depends=('libxft')
+makedepends=('ncurses' 'libxext' 'git')
+source=('git://git.suckless.org/st' \
+'http://st.suckless.org/patches/st-scrollback.diff' \
+'http://st.suckless.org/patches/st-no-bold-colors.diff' \
+'http://st.suckless.org/patches/st-solarized-dark.diff')
+sha1sums=('SKIP' 'SKIP' 'SKIP' 'SKIP')
+
+provides=("${_pkgname}")
+conflicts=("${_pkgname}")
+
+pkgver() {
+	cd "${srcdir}/${_pkgname}"
+	git log -1 --format='%cd.%h' --date=short | tr -d -
+}
+
+prepare() {
+	cd "${srcdir}/${_pkgname}"
+	sed \
+		-e 's/CPPFLAGS =/CPPFLAGS +=/g' \
+		-e 's/CFLAGS =/CFLAGS +=/g' \
+		-e 's/LDFLAGS =/LDFLAGS +=/g' \
+		-i config.mk
+	sed '/char font/s/".*"/"Inconsolata-g for Powerline:pixelsize=25"/' -i config.def.h
+    patch -p1 -i $srcdir/st-scrollback.diff
+    patch -p1 -i $srcdir/st-no-bold-colors.diff
+    patch -p1 -i $srcdir/st-solarized-dark.diff
+}
+
+build() {
+	cd "${srcdir}/${_pkgname}"
+	make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11
+}
+
+package() {
+	cd "${srcdir}/${_pkgname}"
+	export TERMINFO="${pkgdir}/usr/share/terminfo"
+	install -d "$TERMINFO"
+	make PREFIX=/usr DESTDIR="${pkgdir}" install
+	install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+	install -Dm644 README "${pkgdir}/usr/share/doc/${pkgname}/README"
+}

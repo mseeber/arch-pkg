@@ -2,7 +2,7 @@
 
 /* appearance */
 static const char *fonts[] = {
-    "Inconsolata:size=13"
+    "Inconsolata:size=11"
     "Sans:size=10.5",
     "VL Gothic:size=10.5",
     "WenQuanYi Micro Hei:size=10.5",
@@ -33,7 +33,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       ~0,            True,        -1 },
-	{ "trayer",   NULL,       NULL,       ~0,           True,        -1 },
+	{ "qjackctl", NULL,       NULL,       ~0,            True,        -1 },
 };
 
 /* layout(s) */

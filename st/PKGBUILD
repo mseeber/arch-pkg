@@ -5,7 +5,7 @@
 pkgname=st-git
 _pkgname=st
 epoch=1
-pkgver=20150702.5f48e89
+pkgver=20150707.92e092e
 pkgrel=1
 pkgdesc='Simple virtual terminal emulator for X'
 url='http://git.suckless.org/st/'
@@ -16,7 +16,7 @@ makedepends=('ncurses' 'libxext' 'git')
 source=('git://git.suckless.org/st' \
 'http://st.suckless.org/patches/st-scrollback.diff' \
 'http://st.suckless.org/patches/st-no-bold-colors.diff' \
-'https://gist.githubusercontent.com/mseeber/5e819795cfe29385b113/raw/40ac6d43dc77a8463c60e9c1fe73c3aa2b3044a6/st-solarized-toggle.diff')
+'https://gist.githubusercontent.com/mseeber/5e819795cfe29385b113/raw/c7bee3d60d0ceeee4dc97105bac18f8e3ebcc91f/st-solarized-toggle.diff')
 sha1sums=('SKIP' 'SKIP' 'SKIP' 'SKIP')
 
 provides=("${_pkgname}")

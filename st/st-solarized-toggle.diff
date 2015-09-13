@@ -99,7 +99,7 @@ index b6adc5e..645970b 100644
  	{ MODKEY|ShiftMask,     XK_C,           clipcopy,       {.i =  0} },
  	{ MODKEY|ShiftMask,     XK_V,           clippaste,      {.i =  0} },
  	{ MODKEY,               XK_Num_Lock,    numlock,        {.i =  0} },
-+	{ MODKEY,               XK_t,           togglebg,       {.i =  0} },
++	{ MODKEY,               XK_F9,          togglebg,       {.i =  0} },
  };
  
  /*

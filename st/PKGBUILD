@@ -5,7 +5,7 @@
 pkgname=st-git
 _pkgname=st
 epoch=1
-pkgver=20150707.92e092e
+pkgver=20150912.bf8c71e
 pkgrel=1
 pkgdesc='Simple virtual terminal emulator for X'
 url='http://git.suckless.org/st/'
@@ -15,9 +15,8 @@ depends=('libxft')
 makedepends=('ncurses' 'libxext' 'git')
 source=('git://git.suckless.org/st' \
 'http://st.suckless.org/patches/st-scrollback.diff' \
-'http://st.suckless.org/patches/st-no-bold-colors.diff' \
-'https://gist.githubusercontent.com/mseeber/5e819795cfe29385b113/raw/c7bee3d60d0ceeee4dc97105bac18f8e3ebcc91f/st-solarized-toggle.diff')
-sha1sums=('SKIP' 'SKIP' 'SKIP' 'SKIP')
+'http://st.suckless.org/patches/st-no-bold-colors.diff')
+sha1sums=('SKIP' 'SKIP' 'SKIP')
 
 provides=("${_pkgname}")
 conflicts=("${_pkgname}")
@@ -34,7 +33,7 @@ prepare() {
 		-e 's/CFLAGS =/CFLAGS +=/g' \
 		-e 's/LDFLAGS =/LDFLAGS +=/g' \
 		-i config.mk
-	sed '/char font/s/".*"/"Inconsolata-g for Powerline:pixelsize=25"/' -i config.def.h
+	sed '/char font/s/".*"/"Inconsolata-g for Powerline:pixelsize=24:antialias=true:autohint=true"/' -i config.def.h
 #    patch -p1 -i $srcdir/st-scrollback.diff
     patch -p1 -i $srcdir/st-no-bold-colors.diff
     patch -p1 -i $srcdir/st-solarized-toggle.diff

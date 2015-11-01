@@ -34,8 +34,7 @@ prepare() {
 		-e 's/CFLAGS =/CFLAGS +=/g' \
 		-e 's/LDFLAGS =/LDFLAGS +=/g' \
 		-i config.mk
-	sed '/char font/s/".*"/"Inconsolata-g for Powerline:pixelsize=24:antialias=true:autohint=true"/' -i config.def.h
-#    patch -p1 -i $srcdir/st-scrollback.diff
+	sed '/char font/s/".*"/"Inconsolata-g for Powerline:pixelsize=26:antialias=true:autohint=true"/' -i config.def.h
     patch -p1 -i $srcdir/st-no-bold-colors.diff
     patch -p1 -i $srcdir/st-solarized-toggle.diff
 }

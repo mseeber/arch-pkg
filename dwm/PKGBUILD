@@ -16,18 +16,16 @@ makedepends=('git')
 source=('git://git.suckless.org/dwm/' \
     'config.h' \
     'dwm.desktop' \
-    'xft-fix-systray.diff' \
-    'dwm-6.1-systray.diff')
+    'http://dwm.suckless.org/patches/dwm-git-20160103-systray.diff')
+
 sha1sums=('SKIP'
           'SKIP'
-          'SKIP'
-          'SKIP'
-          'SKIP')
+          '9dc7ba48e3270d0e6273b4f3ca7d22cb1eb1599b'
+          'ed31c65b6e1b5972deb9f9ac5408f3f7a30c62af')
 
 prepare() {
-	cd "${srcdir}/${_pkgname}"
-    patch -p0 -i $srcdir/dwm-6.1-systray.diff
-    patch -p0 -i $srcdir/xft-fix-systray.diff
+    cd "${srcdir}/${_pkgname}/dwm"
+    patch -p1 -i $srcdir/dwm-git-20160103-systray.diff
 }
 
 build() {

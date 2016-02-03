@@ -1,0 +1,4 @@
+src/
+dmenu/
+pkg/
+*.tar.xz

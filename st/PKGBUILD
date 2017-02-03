@@ -36,6 +36,7 @@ prepare() {
 		-e 's/LDFLAGS =/LDFLAGS +=/g' \
 		-i config.mk
 	sed '/char font/s/".*"/"Inconsolata:pixelsize=28:antialias=true:autohint=true"/' -i config.def.h
+	sed 's/static int borderpx = 2/static int borderpx = 0/g' -i config.def.h
 	patch -p1 -i ${srcdir}/st-no_bold_colors-20160727-308bfbf.diff
 	patch -p1 -i ${srcdir}/st-solarized-toggle-bg.diff
 }

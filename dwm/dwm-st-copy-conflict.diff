@@ -1,0 +1,13 @@
+diff --git a/dwm.1 b/dwm.1
+index e3b2c38..781dfdc 100644
+--- a/dwm.1
++++ b/dwm.1
+@@ -113,7 +113,7 @@ Decrease master area size.
+ .B Mod1\-Return
+ Zooms/cycles focused window to/from master area (tiled layouts only).
+ .TP
+-.B Mod1\-Shift\-c
++.B Mod1\-Control\-Shift\-c
+ Close focused window.
+ .TP
+ .B Mod1\-Shift\-space

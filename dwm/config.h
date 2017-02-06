@@ -10,7 +10,7 @@ static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = {
-	"Inconsolata:pixelsize=26",
+	"Inconsolata:pixelsize=24:antialias=true:autohint=true",
 	"Sans:size=10.5",
 };
 static const char dmenufont[]       = "Inconsolata:pixelsize=26";
@@ -34,8 +34,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Firefox",  NULL,       NULL,       0,            0,           -1 },
 };
 
 /* layout(s) */

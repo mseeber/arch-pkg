@@ -15,9 +15,11 @@ depends=('libxft')
 makedepends=('ncurses' 'libxext' 'git')
 source=('git://git.suckless.org/st' \
 	'http://st.suckless.org/patches/st-no_bold_colors-20160727-308bfbf.diff' \
+	'http://st.suckless.org/patches/st-delkey-20160727-308bfbf.diff'
 	'st-solarized-toggle-bg.diff')
 sha1sums=('SKIP' \
 	'd089f953f091933fa867416648d497a87bde3461' \
+	'1b3a6708a3644414fa26f07db8b2e1bb719f0381' \
 	'SKIP')
 
 provides=("${_pkgname}")
@@ -39,6 +41,7 @@ prepare() {
 	sed 's/static int borderpx = 2/static int borderpx = 0/g' -i config.def.h
 	patch -p1 -i ${srcdir}/st-no_bold_colors-20160727-308bfbf.diff
 	patch -p1 -i ${srcdir}/st-solarized-toggle-bg.diff
+	patch -p1 -i ${srcdir}/st-delkey-20160727-308bfbf.diff
 }
 
 build() {

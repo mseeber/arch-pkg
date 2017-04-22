@@ -13,7 +13,7 @@ arch=('i686' 'x86_64' 'armv7h')
 license=('MIT')
 depends=('libxft')
 makedepends=('ncurses' 'libxext' 'git')
-source=('git://git.suckless.org/st' \
+source=('git://git.suckless.org/st#commit=c63a87c' \
 	'http://st.suckless.org/patches/st-no_bold_colors-20160727-308bfbf.diff' \
 	'http://st.suckless.org/patches/st-delkey-20160727-308bfbf.diff'
 	'st-solarized-toggle-bg.diff')

@@ -14,13 +14,11 @@ provides=('dwm')
 conflicts=('dwm')
 epoch=1
 source=(dwm.desktop \
-        "$_pkgname::git+http://git.suckless.org/dwm" \
+        'git://git.suckless.org/dwm#commit=bb3bd6f' \
         'config.h' \
-        'dwm-st-copy-conflict.diff' \
         'http://dwm.suckless.org/patches/dwm-systray-20161218-bb3bd6f.diff')
 
 md5sums=('939f403a71b6e85261d09fc3412269ee'
-         'SKIP'
          'SKIP'
          'SKIP'
          'SKIP')
@@ -34,7 +32,6 @@ prepare() {
   cp -f ${srcdir}/config.h ${_pkgname}/config.h
   cd "${srcdir}/${_pkgname}"
   patch -p1 -i ${srcdir}/dwm-systray-20161218-bb3bd6f.diff
-  patch -p1 -i ${srcdir}/dwm-st-copy-conflict.diff
 }
 
 build() {

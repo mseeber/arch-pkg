@@ -9,6 +9,8 @@ static const char unknown_str[] = "n/a";
 /* maximum output string length */
 #define MAXLEN 2048
 
+static char const sync_active[] = "systemctl --user is-active syncthing";
+
 /*
  * function             description                     argument (example)
  *
@@ -52,6 +54,13 @@ static const char unknown_str[] = "n/a";
  * wifi_essid           WiFi ESSID                      interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
+	/* function             format           argument */
+	{ keyboard_indicators,  "[%s]",          NULL            },
+	{ run_command,          "[S: %7.7s]",    sync_active     },
+	{ cpu_freq,             "[%4.4s MHz]",   NULL            },  //max 9999 MHz
+	{ battery_perc,         "[BAT:%3.3s%%",  "BAT0"          },
+	{ battery_state,        "%s]",           "BAT0"          },
+	{ wifi_essid,           "[%s ",          "wlp4s0"        },
+	{ wifi_perc,            "%s]",           "wlp4s0"        },
+	{ datetime,             "[%s]",          "%F %T"         },
 };

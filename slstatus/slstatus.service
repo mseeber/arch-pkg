@@ -1,0 +1,14 @@
+# This unit is intended as a user unit to provide slstatus after login
+# 
+# Place it in '~/.config/systemd/user/' (or see systemd documentation)
+# and manage it with 'systemctl --user'.
+
+[Unit]
+Description=slstatus
+
+[Service]
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/slstatus
+
+[Install]
+WantedBy=default.target

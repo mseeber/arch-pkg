@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
-static const int interval = 1000;
+static const int interval = 5000;
 
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
@@ -62,5 +62,5 @@ static const struct arg args[] = {
 	{ battery_state,        "%s]",           "BAT0"          },
 	{ wifi_essid,           "[%s ",          "wlp4s0"        },
 	{ wifi_perc,            "%s]",           "wlp4s0"        },
-	{ datetime,             "[%s]",          "%F %T"         },
+	{ datetime,             "[%s]",          "%F %H:%M"      },
 };

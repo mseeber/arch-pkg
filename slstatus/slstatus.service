@@ -7,6 +7,7 @@
 Description=slstatus
 
 [Service]
+ExecStartPre=/bin/sleep 2
 Environment=DISPLAY=:0
 ExecStart=/usr/bin/slstatus
 

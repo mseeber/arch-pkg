@@ -39,6 +39,23 @@ prepare() {
 		-i config.mk
 	sed '/char font/s/".*"/"Hack:pixelsize=21:antialias=true:autohint=true"/' -i config.def.h
 	sed 's/static int borderpx = 2/static int borderpx = 0/g' -i config.def.h
+	sed 's/"black"/"#1b1918"/g' -i config.def.h
+	sed 's/"red3"/"#f22c40"/g' -i config.def.h
+	sed 's/"green3"/"#7b9726"/g' -i config.def.h
+	sed 's/"yellow3"/"#c38418"/g' -i config.def.h
+	sed 's/"blue2"/"#407ee7"/g' -i config.def.h
+	sed 's/"magenta3"/"#c33ff3"/g' -i config.def.h
+	sed 's/"cyan3"/"#00ad9c"/g' -i config.def.h
+	sed 's/"gray90"/"#a8a19f"/g' -i config.def.h
+	
+	sed 's/"gray50"/"#766e6b"/g' -i config.def.h
+	sed 's/"red"/"#f22c40"/g' -i config.def.h
+	sed 's/"green"/"#7b9726"/g' -i config.def.h
+	sed 's/"yellow"/"#c38418"/g' -i config.def.h
+	sed 's/"#5c5cff"/"#407ee7"/g' -i config.def.h
+	sed 's/"magenta"/"#c33ff3"/g' -i config.def.h
+	sed 's/"cyan"/"#00ad9c"/g' -i config.def.h
+	sed 's/"white"/"#f1efee"/g' -i config.def.h
 	patch -p1 -i ${srcdir}/st-no_bold_colors-20160727-308bfbf.diff
 	#patch -p1 -i ${srcdir}/st-solarized-toggle-bg.diff
 	patch -p1 -i ${srcdir}/st-delkey-20160727-308bfbf.diff

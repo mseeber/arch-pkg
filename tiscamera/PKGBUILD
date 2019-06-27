@@ -1,0 +1,38 @@
+# Maintainer: Your Name <youremail@domain.com>
+pkgname=tiscamera
+pkgver=0.11.1
+_tarball_name=v-tiscamera-$pkgver.tar.gz
+pkgrel=1
+pkgdesc="The Linux SDK for The Imaging Source cameras. https://www.theimagingsource.com"
+arch=(x86_64)
+url="https://www.theimagingsource.com"
+license=('GPL')
+groups=(APACHE)
+depends=('gstreamer')
+makedepends=('cmake')
+optdepends=('python-pyqt5: gui applications')
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=(https://github.com/TheImagingSource/tiscamera/archive/$_tarball_name)
+noextract=()
+sha1sums=('eff4ef07d62eadcc9abd95560bfe2c7906744db0')
+
+build() {
+  cd "tiscamera-v-tiscamera-$pkgver"
+  mkdir build
+  cd build
+  cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
+  make
+}
+
+package() {
+  cd "tiscamera-v-tiscamera-$pkgver"
+  cd build
+
+  make DESTDIR="$pkgdir/" install
+}
